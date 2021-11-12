@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <title>clock</title>
+  <body>
+    <h1 style="text-align: center; color: blue">live Time</h1>
+    <div style="text-align:center;border:1px solid;margin:20%;">
+      <h1>
+    <span id="hours">12</span>
+    <span id="minutes">60</span>
+    <span id="seconds">60</span>
+    <span id="am_or_pm">am</span>
+      </div>
+    <script>
+      function time() {
+        let y = new Date();
+        let hours = y.getHours();
+        let minutes = y.getMinutes();
+        let seconds = y.getSeconds();
+        let am_or_pm = document.getElementById('am_or_pm');
+        if (hours >= 12) {
+          am_or_pm.innerHTML = 'PM';
+        } else {
+          am_or_pm.innerHTML = 'AM';
+        }
+        if (hours > 12) {
+          hours = hours - 12;
+        }
+        if(minutes<10){
+          minutes = "0" + minutes;
+        }
+        if(seconds<10){
+          seconds = "0" + seconds;
+        }
+        if(hours<10){
+          hours ="0" + hours; 
+        }
+        document.getElementById('hours').innerHTML = hours + ':';
+        document.getElementById('minutes').innerHTML = minutes + ':';
+        document.getElementById('seconds').innerHTML = seconds;
+      }
+      setInterval(time);
+    
+    </script>
+  </body>
+</html>
